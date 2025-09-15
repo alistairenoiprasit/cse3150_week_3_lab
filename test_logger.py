@@ -1,4 +1,4 @@
-import subprocess, pathlib, atexit, shutil
+import subprocess, pathlib, atexit, glob
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build"
@@ -6,9 +6,10 @@ BIN = BUILD / "logger"
 
 # --- Build step ---
 BUILD.mkdir(exist_ok=True)
+cpp_files = glob.glob("src/*.cpp")
 subprocess.run(
-    ["g++", "-std=c++17", "src/*.cpp", "-Iinclude", "-o", str(BIN)],
-    shell=False, check=True
+    ["g++", "-std=c++17", *cpp_files, "-Iinclude", "-o", str(BIN)],
+    check=True
 )
 
 # --- Cleanup after tests ---

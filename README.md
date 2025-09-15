@@ -1,4 +1,4 @@
-# cse3150-template
+# cse3150-week-3
 Lab Week: 3
 
 `Name: Alistaire Noiprasit`

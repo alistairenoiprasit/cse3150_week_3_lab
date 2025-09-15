@@ -1,5 +1,5 @@
 # cse3150-template
-`Homework/Lab Week: `
+Lab Week: 3
 
 `Name: Alistaire Noiprasit`
 

@@ -16,8 +16,8 @@ Misconduct.
 > This work is NOT ready for submission as of `Day XX MONTH 2025`. <br>
 -->
 > [!IMPORTANT]
-> This work is NOT ready for submission as of `<insert date>`. <br>
-> The final due date is `<insert date>`.
+> This work is ready for submission as of `Mon 15 Sep 2025`. <br>
+> The final due date is `Thur 18 Sep 2025`.
 
 SIGNED: ALISTAIRE NOIPRASIT
 

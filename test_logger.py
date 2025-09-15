@@ -1,8 +1,27 @@
-import subprocess, pathlib
+import subprocess, pathlib, atexit, shutil
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build"
 BIN = BUILD / "logger"
+
+# --- Build step ---
+BUILD.mkdir(exist_ok=True)
+subprocess.run(
+    ["g++", "-std=c++17", "src/*.cpp", "-Iinclude", "-o", str(BIN)],
+    shell=False, check=True
+)
+
+# --- Cleanup after tests ---
+def _cleanup():
+    try:
+        if BIN.exists():
+            BIN.unlink()
+        if BUILD.exists() and not any(BUILD.iterdir()):
+            BUILD.rmdir()
+    except Exception:
+        pass
+
+atexit.register(_cleanup)
 
 def run(bin_path, args=(), stdin_data=""):
     proc = subprocess.run([str(bin_path), *map(str,args)],
